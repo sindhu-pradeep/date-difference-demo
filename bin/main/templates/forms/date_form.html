@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Demo DateDiff</title>
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <style type="text/css">
+    .result_message {
+    fo
+    }
+    </style>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="#" th:object="${datediff}" th:action="@{/datediff}">
+            <h3>Demo DateDiff</h3>
+            <input type="date" placeholder="Start Date" id="sdate" th:field="*{{startDate}}"/>
+            <input type="date" placeholder="End Date" id="edate" th:field="*{{endDate}}"/>
+            
+            
+            <input type="submit" value="Submit"/>
+        </form>
+        
+        <div class="result_message" th:if="${submitted}">
+        
+        	<div th:if="${success}">
+	        	 <h3>No.of days between given day : </h3> <p th:text="${daydiff}">Test</p>
+	    	</div>
+		    <div th:unless="${success}">
+		        <h3>Error Message : </h3> <p th:text="${error}">Test</p>
+		    </div>
+           
+          
+        </div>
+        <!-- <div class="result_message" th:unless="${submitted}">
+            <h3>Error Message : </h3> <p th:text="${error}">Test</p>
+          
+        </div> -->
+
+    </div>
+</body>
+</html>
